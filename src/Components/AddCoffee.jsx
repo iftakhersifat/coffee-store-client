@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddCoffee = () => {
     const handleAddCoffee = e => {
@@ -8,19 +9,28 @@ const AddCoffee = () => {
     const coffeeData = Object.fromEntries(formData.entries()); // Convert to object
     console.log(coffeeData);
 
-    // send coffee data to the db
-    fetch('http://localhost:3000/coffees', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(coffeeData)
-})
-  .then(res => res.json())
-  .then(data => {
-    console.log("after send data", data);
-  });
-};
+        // send coffee data to the db
+        fetch('http://localhost:3000/coffees', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(coffeeData)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if(data.insertedId){
+                console.log("after send data", data);
+                
+                Swal.fire({
+                title: "Coffee added Successfully!",
+                icon: "success",
+                draggable: true
+              });
+            }
+
+          });
+        };
 
 
     return (
@@ -56,8 +66,8 @@ const AddCoffee = () => {
                     </fieldset>
                     {/* 5th */}
                     <fieldset className="fieldset">
-                    <legend className="fieldset-legend">Category</legend>
-                    <input type="text" className="input w-full" name='category' placeholder="Enter coffee category" />
+                    <legend className="fieldset-legend">Price</legend>
+                    <input type="text" className="input w-full" name='Price' placeholder="Enter coffee price" />
                     </fieldset>
                     {/* 6th */}
                     <fieldset className="fieldset">
