@@ -1,6 +1,15 @@
 import React from 'react';
 
 const AddCoffee = () => {
+    const handleAddCoffee = e => {
+    e.preventDefault();
+    const form = e.target; // Get the form element
+    const formData = new FormData(form); // Create FormData from form
+    const coffeeData = Object.fromEntries(formData.entries()); // Convert to object
+    console.log(coffeeData);
+};
+
+
     return (
         <div className='container mx-auto mt-10 space-y-6 p-4 md:p-0'>
             <div className='bg-[#F4F3F0] md:p-16 p-6'>
@@ -10,47 +19,48 @@ const AddCoffee = () => {
                 </div>
 
                 {/* fieldset */}
-                <form>
+                <form onSubmit={handleAddCoffee}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     {/* 1st */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Name</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee name" />
+                    <input type="text" className="input w-full" name='name' placeholder="Enter coffee name" />
                     </fieldset>
                     {/* 2nd */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Chef</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee chef" />
+                    <input type="text" className="input w-full" name='chef' placeholder="Enter coffee chef" />
                     </fieldset>
                     {/* 3rd */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Supplier</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee supplier" />
+                    <input type="text" className="input w-full" name='supplier' placeholder="Enter coffee supplier" />
                     </fieldset>
                     {/* 4th */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Taste</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee taste" />
+                    <input type="text" className="input w-full" name='taste' placeholder="Enter coffee taste" />
                     </fieldset>
                     {/* 5th */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Category</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee category" />
+                    <input type="text" className="input w-full" name='category' placeholder="Enter coffee category" />
                     </fieldset>
                     {/* 6th */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Details</legend>
-                    <input type="text" className="input w-full" placeholder="Enter coffee details" />
+                    <input type="text" className="input w-full" name='details' placeholder="Enter coffee details" />
                     </fieldset>
                 </div>
                 {/* 7th */}
                     <fieldset className="fieldset">
                     <legend className="fieldset-legend">Photo</legend>
-                    <input type="text" className="input w-full" placeholder="Enter photo URL" />
+                    <input type="text" className="input w-full" name='photo' placeholder="Enter photo URL" />
                     </fieldset>
+                    <button className='btn bg-[#D2B48C] rounded-lg w-full mt-4'>Add Coffee</button>
                 </form>
             </div>
-            <button className='btn bg-[#D2B48C] rounded-lg w-full'>Add Coffee</button>
+            
         </div>
     );
 };
