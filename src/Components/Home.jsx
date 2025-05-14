@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import CardDetails from './CardDetails';
 
 const Home = () => {
-    const [Card, setCard] = useState();
+    const [card, setCard] = useState([]);
     useEffect(() => {
     fetch("http://localhost:3000/coffees")
       .then(res => res.json())
@@ -9,10 +10,15 @@ const Home = () => {
         setCard(data);
       });
   }, []);
-    console.log(Card)
+    console.log(card)
     return (
-        <div>
+        <div className='container mx-auto p-4 md:p-0'>
             <h1>Home Section</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
+                {
+                    card.map(cards=><CardDetails key={cards._id} cards={cards}></CardDetails>)
+                }
+            </div>
         </div>
     );
 };
