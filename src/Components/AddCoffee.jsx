@@ -7,6 +7,19 @@ const AddCoffee = () => {
     const formData = new FormData(form); // Create FormData from form
     const coffeeData = Object.fromEntries(formData.entries()); // Convert to object
     console.log(coffeeData);
+
+    // send coffee data to the db
+    fetch('http://localhost:3000/coffees', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(coffeeData)
+})
+  .then(res => res.json())
+  .then(data => {
+    console.log("after send data", data);
+  });
 };
 
 
