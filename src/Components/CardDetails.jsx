@@ -6,17 +6,6 @@ const CardDetails = ({ cards }) => {
 
   const handleDelete=(_id)=>{
     console.log("delete this", _id)
-    // fetch(`http://localhost:3000/coffees/${_id}`,{
-    //         method: 'DELETE',
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         if(data.deletedCount){
-    //             console.log("delete data", data)
-                
-    //         }
-            
-    //     })
 
     Swal.fire({
   title: "Are you sure?",
@@ -27,12 +16,22 @@ const CardDetails = ({ cards }) => {
   cancelButtonColor: "#d33",
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
+  console.log(result.isConfirmed)
   if (result.isConfirmed) {
-    Swal.fire({
+    fetch(`http://localhost:3000/coffees/${_id}`, {
+          method: 'DELETE',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+                 if (data.deletedCount) {
+              Swal.fire({
       title: "Deleted!",
       text: "Your file has been deleted.",
       icon: "success"
     });
+            }
+            
+        })
   }
 });
   }
