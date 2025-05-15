@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
     console.log(card)
     return (
-        <div className='container mx-auto p-4 md:p-0'>
+        <div className='container mx-auto p-4 md:p-0 mt-10 mb-10'>
             <h1>Home Section</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                 {
