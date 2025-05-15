@@ -16,7 +16,7 @@ const Home = () => {
             <h1>Home Section</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                 {
-                    card.map(cards=><CardDetails key={cards._id} cards={cards}></CardDetails>)
+                    card.map(cards=><CardDetails key={cards._id} card={card} setCard={setCard} cards={cards}></CardDetails>)
                 }
             </div>
         </div>
