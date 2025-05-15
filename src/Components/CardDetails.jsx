@@ -49,9 +49,9 @@ const CardDetails = ({ cards }) => {
           <h3 className="text-md">Price: {price}</h3>
         </div>
         <div className='flex flex-col space-y-2'>
-          <Link to={`/coffees/${_id}`}><button className="btn bg-blue-500 text-white">View</button></Link>
-          <button className="btn bg-green-500 text-white">Edit</button>
-          <button onClick={()=>handleDelete(cards._id)} className="btn bg-red-500 text-white">Delete</button>
+          <Link to={`/coffees/${_id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
+          <Link to={`/update/${_id}`}><button className="btn bg-green-500 w-[60px] text-white">Edit</button></Link>
+          <button onClick={()=>handleDelete(cards._id)} className="btn bg-red-500 w-[60px] text-white">Delete</button>
         </div>
       </div>
     </div>
