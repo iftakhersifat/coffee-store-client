@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
 
 const Signup = () => {
+
+    const {createUser} =use(AuthContext)
+    console.log(createUser)
+
     const handleSignup=e=>{
         e.preventDefault();
         const form = e.target; // Get the form element
         const formData = new FormData(form); // Create FormData from form
-        const signup = Object.fromEntries(formData.entries()); // Convert to object
-        console.log(signup);
+        const email = formData.get("email");
+        const password = formData.get("password");
+        console.log(email, password);
+
+        // createUser
+        createUser(email, password)
+        .then((result) => {
+          console.log(result.user)
+        })
+        .catch((error) => {
+        console.log(error)
+        });
     }
     return (
         <div className="hero  min-h-screen">
