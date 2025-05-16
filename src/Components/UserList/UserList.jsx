@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const UserList = () => {
@@ -89,7 +90,7 @@ const UserList = () => {
         </td>
         <td>{user.phone}</td>
         <th>
-          <button className="btn bg-blue-500 w-[60px] text-white">View</button>
+          <Link to={`/users/${user._id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
           <button className="btn bg-blue-500 w-[60px] text-white">Edit</button>
           <button onClick={()=>handelDeleteButton(user._id)} className="btn bg-blue-500 w-[60px] text-white">Delete</button>
         </th>

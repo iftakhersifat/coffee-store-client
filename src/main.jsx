@@ -15,6 +15,7 @@ import Signup from './Components/Firebase/Signup.jsx';
 import Signin from './Components/Firebase/Signin.jsx';
 import AuthProvider from './Components/Context/AuthProvider.jsx';
 import UserList from './Components/UserList/UserList.jsx';
+import ViewUser from './Components/UserList/ViewUser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,13 @@ const router = createBrowserRouter([
       },
       {
         path: "users", Component: UserList
+      },
+
+      // user list
+      {
+        path: "users/:id", 
+        loader: ({ params }) => fetch(`http://localhost:3000/users/${params.id}`),
+        Component: ViewUser
       },
     ]
   },
