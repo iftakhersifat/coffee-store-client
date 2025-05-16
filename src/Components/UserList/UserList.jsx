@@ -91,7 +91,7 @@ const UserList = () => {
         <td>{user.phone}</td>
         <th>
           <Link to={`/users/${user._id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
-          <button className="btn bg-blue-500 w-[60px] text-white">Edit</button>
+          <Link to={`/profile/${user._id}`}><button className="btn bg-blue-500 w-[60px] text-white">Edit</button></Link>
           <button onClick={()=>handelDeleteButton(user._id)} className="btn bg-blue-500 w-[60px] text-white">Delete</button>
         </th>
       </tr>)
