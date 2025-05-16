@@ -4,9 +4,9 @@ import { auth } from '../Firebase/Firebase';
 export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
 
-    
+
     const createUser =(email, password)=>{
-        return createUserWithEmailAndPassword(auth,email,password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
     const authData ={
         createUser,

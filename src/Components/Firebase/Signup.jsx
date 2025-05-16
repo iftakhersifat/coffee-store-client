@@ -1,23 +1,47 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
 
     const {createUser} =use(AuthContext)
-    console.log(createUser)
+    // console.log(createUser)
 
     const handleSignup=e=>{
         e.preventDefault();
         const form = e.target; // Get the form element
         const formData = new FormData(form); // Create FormData from form
-        const email = formData.get("email");
-        const password = formData.get("password");
-        console.log(email, password);
+        const {email, password, ...userDetails} = Object.fromEntries(formData.entries());
+        console.log(email, password, userDetails);
 
         // createUser
         createUser(email, password)
         .then((result) => {
           console.log(result.user)
+
+        // save profile info in db
+        fetch('http://localhost:3000/users', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(userDetails)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    if(data.insertedId){
+                        console.log("after send data", data);
+                        
+                        Swal.fire({
+                        title: "User added Successfully!",
+                        icon: "success",
+                        draggable: true
+                      });
+                    }
+        
+                  });
+
+
         })
         .catch((error) => {
         console.log(error)
@@ -29,6 +53,18 @@ const Signup = () => {
     <div className="card md:w-[500px] shrink-0 shadow-2xl">
       <div className="card-body">
         <form onSubmit={handleSignup} className="fieldset">
+
+          <label className="label">Name</label>
+          <input type="text" className="input w-full" name='name' placeholder="Enter your name" />
+
+          <label className="label">Address</label>
+          <input type="text" className="input w-full" name='address' placeholder="Enter your address" />
+
+          <label className="label">Phone</label>
+          <input type="text" className="input w-full" name='phone' placeholder="Enter your phone" />
+
+          <label className="label">Photo URl</label>
+          <input type="text" className="input w-full" name='photo' placeholder="Photo URL" />
 
           <label className="label">Email</label>
           <input type="email" className="input w-full" name='email' placeholder="Email" />
