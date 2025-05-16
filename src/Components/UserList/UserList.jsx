@@ -10,7 +10,10 @@ const UserList = () => {
             setProfile(data)
         })
     },[])
-    // console.log(profile)
+    
+    const handelDeleteButton =(_id)=>{
+        console.log("deleted this user", _id)
+    }
 
     return (
         <div className="overflow-x-auto">
@@ -22,8 +25,8 @@ const UserList = () => {
           User List
         </th>
         <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Address</th>
+        <th>Phone</th>
         <th></th>
       </tr>
     </thead>
@@ -39,24 +42,24 @@ const UserList = () => {
             <div className="avatar">
               <div className="mask mask-squircle h-12 w-12">
                 <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                  src={user.photo}
                   alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
+              <div className="font-bold">{user.name}</div>
+              {/* <div className="text-sm opacity-50"></div> */}
             </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+          {user.address}
         </td>
-        <td>Purple</td>
+        <td>{user.phone}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button className="btn bg-blue-500 w-[60px] text-white">View</button>
+          <button className="btn bg-blue-500 w-[60px] text-white">Edit</button>
+          <button onClick={()=>handelDeleteButton(user._id)} className="btn bg-blue-500 w-[60px] text-white">Delete</button>
         </th>
       </tr>)
       }
