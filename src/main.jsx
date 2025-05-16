@@ -14,6 +14,7 @@ import View from './Components/View.jsx';
 import Signup from './Components/Firebase/Signup.jsx';
 import Signin from './Components/Firebase/Signin.jsx';
 import AuthProvider from './Components/Context/AuthProvider.jsx';
+import UserList from './Components/UserList/UserList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,10 @@ const router = createBrowserRouter([
       },
       {
         path: "signin", Component: Signin
-      }
+      },
+      {
+        path: "users", Component: UserList
+      },
     ]
   },
 ]);
