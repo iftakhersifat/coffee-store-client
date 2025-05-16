@@ -11,6 +11,8 @@ import Home from './Components/Home.jsx';
 import AddCoffee from './Components/AddCoffee.jsx';
 import UpdateCoffee from './Components/UpdateCoffee.jsx';
 import View from './Components/View.jsx';
+import Signup from './Components/Firebase/Signup.jsx';
+import Signin from './Components/Firebase/Signin.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,13 @@ const router = createBrowserRouter([
         path: "coffees/:id",
         loader: ({ params }) => fetch(`http://localhost:3000/coffees/${params.id}`),
         Component: View,
+      },
+      // signup
+      {
+        path: "signup", Component: Signup
+      },
+      {
+        path: "signin", Component: Signin
       }
     ]
   },

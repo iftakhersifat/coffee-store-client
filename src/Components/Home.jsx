@@ -14,6 +14,29 @@ const Home = () => {
     return (
         <div className='p-4 md:p-0 mt-10 mb-10'>
 
+            {/* banner section */}
+           <div 
+  className="flex flex-col justify-center items-center gap-4 mt-10 p-6 h-[900px] bg-cover bg-center relative"
+  style={{ backgroundImage: "url('/assets/images/more/3.png')" }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+
+  {/* Content */}
+  <div className="relative text-center text-white max-w-xl px-4">
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Would you like a Cup of Delicious Coffee?
+    </h1>
+    <p className="mt-4 text-sm md:text-base">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, quidem sequi laborum corrupti ad quaerat sunt facilis voluptatem vero cumque?
+    </p>
+    <button className="bg-[#E3B577] px-6 py-2 rounded mt-6 font-semibold hover:bg-[#c99b58] transition">
+      Learn More
+    </button>
+  </div>
+</div>
+
+
             {/* image & text section */}
             <div className='bg-[#ECEAE3] p-8'>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
