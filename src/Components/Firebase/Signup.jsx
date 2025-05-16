@@ -19,13 +19,22 @@ const Signup = () => {
         .then((result) => {
           console.log(result.user)
 
+          // Merge metadata with other user details
+    const fullUserData = {
+        email,
+      ...userDetails,
+      
+      creationTime: result.user?.metadata?.creationTime,
+      lastSignInTime: result.user?.metadata?.lastSignInTime
+    };
+
         // save profile info in db
         fetch('http://localhost:3000/users', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify(userDetails)
+                  body: JSON.stringify(fullUserData)
                 })
                   .then(res => res.json())
                   .then(data => {
