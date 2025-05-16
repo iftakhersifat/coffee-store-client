@@ -38,9 +38,9 @@ const UserList = () => {
             });
                     }
         
-                    // remove the coffee from the state
-                    // const remainingUsers = card.filter(user => user._id !== _id)
-                    //     setCard(remainingUsers)
+                    // remove from ui without refresh
+                    const remainingUsers = profile.filter(user => user._id !== _id)
+                        setProfile(remainingUsers)
                     
                 })
           }
