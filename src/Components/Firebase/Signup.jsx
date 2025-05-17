@@ -1,12 +1,14 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Signup = () => {
 
     const {createUser} =use(AuthContext)
     // console.log(createUser)
+
+    const navigate =useNavigate()
 
     const handleSignup=e=>{
         e.preventDefault();
@@ -47,6 +49,7 @@ const Signup = () => {
                         icon: "success",
                         draggable: true
                       });
+                      navigate("/")
                     }
         
                   });

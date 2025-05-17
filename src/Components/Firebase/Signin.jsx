@@ -1,10 +1,11 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Signin = () => {
     const {signIN} =use(AuthContext)
+    const navigate =useNavigate()
 
     const handleSignin=e=>{
         e.preventDefault();
@@ -30,15 +31,7 @@ const Signin = () => {
                               .then(res => res.json())
                               .then(data => {
                                 console.log("after send data", data);
-                                // if(data.insertedId){
-                                    
-                                    
-                                //     Swal.fire({
-                                //     title: "Sign In Successfully!",
-                                //     icon: "success",
-                                //     draggable: true
-                                //   });
-                                // }
+                                navigate("/")
                     
                               });
         })
