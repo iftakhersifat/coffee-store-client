@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Context/AuthProvider';
 
 const UserList = () => {
-
+  
+    const {user} =use(AuthContext)
     const [profile, setProfile] = useState([]);
     useEffect(()=>{
         fetch("http://localhost:3000/users")
@@ -66,7 +68,7 @@ const UserList = () => {
     <tbody>
       {/* row 1 */}
       {
-        profile.map((user, index)=><tr key={user._id}>
+        profile.map((users, index)=><tr key={users._id}>
         <th>
           {index +1}
         </th>
@@ -75,24 +77,27 @@ const UserList = () => {
             <div className="avatar">
               <div className="mask mask-squircle h-12 w-12">
                 <img
-                  src={user.photo}
+                  src={users.photo}
                   alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">{user.name}</div>
+              <div className="font-bold">{users.name}</div>
               {/* <div className="text-sm opacity-50"></div> */}
             </div>
           </div>
         </td>
         <td>
-          {user.address}
+          {users.address}
         </td>
-        <td>{user.phone}</td>
+        <td>{users.phone}</td>
         <th>
-          <Link to={`/users/${user._id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
-          <Link to={`/profile/${user._id}`}><button className="btn bg-blue-500 w-[60px] text-white">Edit</button></Link>
-          <button onClick={()=>handelDeleteButton(user._id)} className="btn bg-blue-500 w-[60px] text-white">Delete</button>
+          {
+            user && <>
+            <Link to={`/users/${users._id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
+          <Link to={`/profile/${users._id}`}><button className="btn bg-blue-500 w-[60px] text-white">Edit</button></Link>
+          <button onClick={()=>handelDeleteButton(users._id)} className="btn bg-blue-500 w-[60px] text-white">Delete</button></>
+          }
         </th>
       </tr>)
       }
