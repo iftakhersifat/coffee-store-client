@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthProvider';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const Signin = () => {
     const {signIN} =use(AuthContext)
@@ -16,7 +17,7 @@ const Signin = () => {
         // use sign in
         signIN(email,password)
         .then(result=>{
-            console.log(result.user)
+            toast.success("Sign in Successfully",result.user)
             const signInInfo={
                 email,
                 lastSignInTime: result.user?.metadata?.lastSignInTime
@@ -36,7 +37,7 @@ const Signin = () => {
                               });
         })
         .catch(error=>{
-            console.log(error)
+            toast.error(error)
         })
     }
 

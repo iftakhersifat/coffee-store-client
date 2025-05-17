@@ -18,6 +18,7 @@ import UserList from './Components/UserList/UserList.jsx';
 import ViewUser from './Components/UserList/ViewUser.jsx';
 import UserUpdate from './Components/UserList/UserUpdate.jsx';
 import NotFound from './Components/NotFound/NotFound.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
+      <Toaster position="top-right" reverseOrder={false} />
       <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,

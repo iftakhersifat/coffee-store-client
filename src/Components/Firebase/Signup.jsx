@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
 
@@ -20,7 +21,7 @@ const Signup = () => {
         // createUser
         createUser(email, password)
         .then((result) => {
-          console.log(result.user)
+          toast.success("Sign Up Successfully",result.user)
 
           // Merge metadata with other user details
     const fullUserData = {
@@ -57,7 +58,7 @@ const Signup = () => {
 
         })
         .catch((error) => {
-        console.log(error)
+        toast.error(error)
         });
     }
     return (
