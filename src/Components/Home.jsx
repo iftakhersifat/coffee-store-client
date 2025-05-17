@@ -12,25 +12,24 @@ const Home = () => {
   }, []);
     console.log(card)
     return (
-        <div className='p-4 md:p-0 mt-10 mb-10'>
+        <div className='mb-10'>
 
             {/* banner section */}
-           <div 
-  className="flex flex-col justify-center items-center gap-4 mt-10 p-6 h-[900px] bg-cover bg-center relative"
-  style={{ backgroundImage: "url('/assets/images/more/3.png')" }}
->
+           <div className="flex flex-col justify-center items-center gap-4 p-6 h-[650px] bg-cover bg-center relative"
+  style={{ backgroundImage: "url('/assets/images/more/3.png')" }}>
   {/* Overlay */}
-  <div className="absolute inset-0 bg-black opacity-50"></div>
+  {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
+  <div className="absolute bg-black opacity-50"></div>
 
   {/* Content */}
-  <div className="relative text-center text-white max-w-xl px-4">
-    <h1 className="text-3xl md:text-4xl font-bold">
+  <div className="relative text-center text-white px-4">
+    <h1 className="text-3xl lg:ml-[550px] md:text-4xl font-bold">
       Would you like a Cup of Delicious Coffee?
     </h1>
-    <p className="mt-4 text-sm md:text-base">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, quidem sequi laborum corrupti ad quaerat sunt facilis voluptatem vero cumque?
+    <p className="mt-4 lg:ml-[520px] text-sm md:text-base">
+      It's coffee time-Slip & Savor Relaxation in every sip! Get the nostalgia back!! Your companion of <br /> every moment!!! Enjoy the beautiful moments and make them memorable.
     </p>
-    <button className="bg-[#E3B577] px-6 py-2 rounded mt-6 font-semibold hover:bg-[#c99b58] transition">
+    <button className="bg-[#E3B577] text-black px-6 py-2 rounded mt-6 font-semibold hover:bg-[#c99b58] transition">
       Learn More
     </button>
   </div>
@@ -86,7 +85,7 @@ const Home = () => {
             </div>
             
             {/* coffees sections */}
-            <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 mb-10'>
+            <div className='container mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 p-4 md:p-0 mb-10'>
                 <img src="/assets/images/cups/Rectangle 9.png" alt="" />
                 <img src="/assets/images/cups/Rectangle 10.png" alt="" />
                 <img src="/assets/images/cups/Rectangle 11.png" alt="" />
