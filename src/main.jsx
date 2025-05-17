@@ -17,6 +17,7 @@ import AuthProvider from './Components/Context/AuthProvider.jsx';
 import UserList from './Components/UserList/UserList.jsx';
 import ViewUser from './Components/UserList/ViewUser.jsx';
 import UserUpdate from './Components/UserList/UserUpdate.jsx';
+import NotFound from './Components/NotFound/NotFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: "*",
+    Component: NotFound
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
