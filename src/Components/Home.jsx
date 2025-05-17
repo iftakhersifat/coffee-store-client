@@ -72,10 +72,12 @@ const Home = () => {
             </div>
 
             {/* main section */}
-            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
+            <div style={{ backgroundImage: "url('/assets/images/more/1.png')" }} className=" bg-cover">
+              <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
                 {
                     card.map(cards=><CardDetails key={cards._id} card={card} setCard={setCard} cards={cards}></CardDetails>)
                 }
+            </div>
             </div>
 
             {/* text sections */}
