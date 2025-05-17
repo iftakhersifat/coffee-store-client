@@ -34,7 +34,7 @@ const AddCoffee = () => {
 
 
     return (
-        <div className='container mx-auto mt-10 space-y-6 p-4 md:p-0'>
+        <div className='container mx-auto mt-10 space-y-6 p-4 md:p-0 mb-20'>
             <div className='bg-[#F4F3F0] md:p-16 p-6'>
                 <div className='text-center space-y-4'>
                 <h1 className='font-bold text-2xl'>Add New Coffee</h1>
