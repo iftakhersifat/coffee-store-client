@@ -2,7 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div style={{ backgroundImage: "url('/assets/images/more/13.jpg')" }} className='p-4'>
+        <div>
+            <div style={{ backgroundImage: "url('/assets/images/more/13.jpg')" }} className='p-4'>
             <div className='container mx-auto md:flex md:justify-between'>
                 <div className='flex flex-col space-y-4'>
                     <img className='w-14' src="/assets/images/more/logo1.png" alt="" />
@@ -22,9 +23,12 @@ const Footer = () => {
         <textarea name="text" placeholder='Message' className="p-2 w-[380px] h-[100px] border border-gray-100 rounded bg-[#FFFFFF]"></textarea>
         </form>
     </div>
+    </div>
+    </div>
 
-
-            </div>
+    <div style={{ backgroundImage: "url('/assets/images/more/15.jpg')" }}>
+        <h1 className='text-white text-center p-2'>Copyright Espresso Emporium ! © {new Date().getFullYear()} - All right reserved</h1>
+    </div>
         </div>
     );
 };
