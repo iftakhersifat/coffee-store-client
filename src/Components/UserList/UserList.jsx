@@ -49,7 +49,7 @@ const UserList = () => {
     }
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mb-20 container mx-auto">
   <table className="table">
     {/* head */}
     <thead>
