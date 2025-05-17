@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='mt-20'>
             <div style={{ backgroundImage: "url('/assets/images/more/13.jpg')" }} className='p-4'>
             <div className='container mx-auto md:flex md:justify-between'>
                 <div className='flex flex-col space-y-4'>

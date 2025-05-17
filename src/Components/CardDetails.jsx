@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from './Context/AuthProvider';
 
 const CardDetails = ({ cards, card, setCard }) => {
   const { _id, name, chef, price, photo } = cards;
 
+  const {user}=use(AuthContext)
   const handleDelete=(_id)=>{
     console.log("delete this", _id)
 
@@ -52,11 +54,15 @@ const CardDetails = ({ cards, card, setCard }) => {
           <h2 className="text-md">Chef: {chef}</h2>
           <h3 className="text-md">Price: {price}</h3>
         </div>
-        <div className='flex flex-col space-y-2'>
+        <div>
+          {
+              user && <div className='flex flex-col space-y-2'>
           <Link to={`/coffees/${_id}`}><button className="btn bg-blue-500 w-[60px] text-white">View</button></Link>
           <Link to={`/update/${_id}`}><button className="btn bg-green-500 w-[60px] text-white">Edit</button></Link>
           <button onClick={()=>handleDelete(cards._id)} className="btn bg-red-500 w-[60px] text-white">Delete</button>
         </div>
+
+          }</div>
       </div>
     </div>
   );
